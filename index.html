@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Weather Data</h1>
+  <div id="weather">
+    <script>
+      const ws = new WebSocket('ws://localhost:3000');
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        document.getElementById('weather').innerText = JSON.stringify(data, null, 2);
+      };
+    </script>
+  </div>
+</body>
+
+</html>
